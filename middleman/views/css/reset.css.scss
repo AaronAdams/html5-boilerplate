@@ -1,0 +1,380 @@
+@import "mixins.css.scss";
+	
+/* 
+ * Reset
+ */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, 
+hgroup, menu, nav, section, menu,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, figure, footer, header, 
+hgroup, nav, section { display:block; }
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help; }
+
+/* Tables still need cellspacing="0" in the markup */
+table { 
+	border-collapse:collapse; 
+	border-spacing:0;
+	
+	td, td img { vertical-align:top; } 
+	
+	td, th { 
+		padding: 5px;
+	}
+	
+	thead td, th {
+		font-weight: bold;
+		text-align: left;
+		background: #333;
+		color: white;
+	}
+	
+	tr.odd td, tr.odd th {
+		@include odd_row
+	}
+}
+
+table.full_width { width: 100%; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+strong { font-weight: bold; }
+
+table.full_width { width: 100%; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+small {
+	font-size: 85%;
+}
+
+/* Lists */
+ul, ol {
+	padding-left: 0
+}
+
+ul {
+	list-style-type: none;
+	margin-left: 0;
+	
+	li {
+		padding-left: 12px;
+		margin-bottom: 1em;
+		background: url(../images/site/icons/bullets/circle_black_med.png) left 0.65em no-repeat;
+		vertical-align: top;
+	}
+	
+	&.bulletless li {
+		padding-left: 0;
+		background: none;
+	}
+	
+	&.stacked li {
+		margin-bottom: 0px;
+	}
+		
+	&.horizontal {
+		padding: 0;
+		overflow: hidden;
+		
+		li {
+			float: left;
+			margin-right: $half_pbreak;
+			display: inline;
+			
+			.last {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+ol {
+	list-style-type: decimal;
+	margin-left: 1.5em;
+	
+	li {
+		padding-left: 0;
+		margin-bottom: $half_pbreak;
+	}
+}
+
+/* Forms */
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: normal;
+	font-size: 115%;
+	
+	&.inline {
+		display: inline;
+		margin: 0;
+		padding-right: $half_pbreak;
+	}
+	
+	&.required .tag,
+	& .required_tag {
+		color: #b01e0a;
+		font-weight: normal;
+		font-size: 80%;
+	}
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+	padding: 2px;
+	width: 45%;
+}
+
+input, select { vertical-align:middle; }
+
+textarea {
+	width: 70%;
+	height: 200px;
+}
+
+select {
+	width: 46%;
+	
+	optgroup {
+		font-weight: bold;
+		font-style: normal;
+	}
+}
+
+/* make buttons play nice in IE:    
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+/* Alerts */
+.alert {
+	padding: $half_pbreak;
+	border: 4px solid #ead139;
+	background: #fffbe4;
+	padding: 10px 10px 10px 40px;
+	
+	h1, h2, h3, h4 {
+		color: #b01e0a;
+		line-height: 1;
+	}
+	
+	ul, ol {
+		margin-bottom: 0;
+	}
+	
+	li {
+		margin-bottom: 0.5em;
+	}
+	
+	&.error {
+		background: #fffbe4 url(../images/site/alerts/error.png) 10px 9px no-repeat;
+	}
+	
+	&.info {
+		background: #f1f6fb url(../images/site/alerts/info.png) 10px 9px no-repeat;
+		border-color: #4582c8;
+		
+		h1, h2, h3, h4 {
+			color: #437cbd;
+		}
+	}
+	
+	&.confirm {
+		background: #f4faed url(../images/site/alerts/confirmation.png) 10px 9px no-repeat;
+		border-color: #6cb245;
+		
+		h1, h2, h3, h4 {
+			color: #468e1e;
+		}
+	}
+		
+	&.warn {
+		background: #fffbe4 url(../images/site/alerts/warn.png) 10px 9px no-repeat;
+	}
+}
+
+/* Icons */
+.iconized {
+	padding: 5px 0px 5px 20px;
+	&.pdf { background: transparent url(../images/site/icons/filetypes/page_white_acrobat.png) no-repeat center left; }
+	&.word { background: transparent url(../images/site/icons/filetypes/page_white_word.png) no-repeat center left; }
+	&.excel { background: transparent url(../images/site/icons/filetypes/page_white_excel.png) no-repeat center left; }
+	&.txt { background: transparent url(../images/site/icons/filetypes/page_white_text.png) no-repeat center left; }
+	&.zip { background: transparent url(../images/site/icons/filetypes/page_white_zip.png) no-repeat center left; }
+	&.previous { background: transparent url(../images/site/icons/arrow_left.png) no-repeat center left; }
+	&.next { background: transparent url(../images/site/icons/arrow_right.png) no-repeat center right; padding: 5px 20px 5px 0px; }
+	&.email { background: transparent url(../images/site/icons/email.png) no-repeat center left; }
+	&.magnifier { background: transparent url(../images/site/icons/magnifier.png) no-repeat center left; }
+	&.people { background: transparent url(../images/site/icons/group.png) no-repeat center left; }
+	&.person { background: transparent url(../images/site/icons/user.png) no-repeat center left; }
+	&.book { background: transparent url(../images/site/icons/book.png) no-repeat center left; }
+	&.pages { background: transparent url(../images/site/icons/page_white_stack.png) no-repeat center left; }
+	&.add { background: transparent url(../images/site/icons/add.png) no-repeat center left; }
+	&.delete { background: transparent url(../images/site/icons/delete.png) no-repeat center left; }
+	&.bar_chart { background: transparent url(../images/site/icons/chart_bar.png) no-repeat center left; }
+	&.check { background: transparent url(../images/site/icons/accept.png) no-repeat center left; }
+	&.star { background: transparent url(../images/site/icons/star.png) no-repeat center left; }
+	&.house { background: transparent url(../images/site/icons/house.png) no-repeat center left; }
+	&.cross { background: transparent url(../images/site/icons/cross.png) no-repeat center left; }
+	&.list { background: transparent url(../images/site/icons/text_list_bullets.png) no-repeat center left; }
+	&.numbered_list { background: transparent url(../images/site/icons/text_list_numbers.png) no-repeat center left; }
+	&.up { background: transparent url(../images/site/icons/arrow_up.png) no-repeat center left; }
+	&.down { background: transparent url(../images/site/icons/arrow_down.png) no-repeat center left; }
+	&.edit { background: transparent url(../images/site/icons/pencil.png) no-repeat center left; }
+	&.access { background: transparent url(../images/site/icons/key.png) no-repeat center left; }
+	&.email_to { background: transparent url(../images/site/icons/email_go.png) no-repeat center left; }
+	&.print { background: transparent url(../images/site/icons/printer.png) no-repeat center left; }
+	&.time { background: transparent url(../images/site/icons/time.png) no-repeat center left; }
+	&.calendar { background: transparent url(../images/site/icons/calendar.png) no-repeat center left; }
+	&.info { background: transparent url(../images/site/icons/information.png) no-repeat center left; }
+	&.warning { background: transparent url(../images/site/icons/error.png) no-repeat center left; }
+	&.picture { background: transparent url(../images/site/icons/picture.png) no-repeat center left; }
+	&.folder { background: transparent url(../images/site/icons/folder.png) no-repeat center left; }
+	&.comment { background: transparent url(../images/site/icons/comment.png) no-repeat center left; }
+}
+
+/* Special Links */
+a.caution {
+	&:link,
+	&:visited {
+		color: #b01e0a;
+	}
+}
+
+a.external {
+	&:link,
+	&:visited { 
+		background: transparent url(../images/site/icons/external_link.gif) no-repeat center right;
+		padding: 5px 15px 5px 0px;
+	}
+}
+
+a.mini {
+	font-size: 85%;
+}
+
+/* Floats */
+.float_wrap {
+	overflow: hidden;
+}
+
+.float_left {
+	float: left;
+	margin: 0 10px 10px 0;
+	display: inline;
+}
+
+.float_right {
+	float: right;
+	margin: 0 0 10px 10px;
+	display: inline;
+}
+
+.clear_both {
+	clear: both
+}
+
+/* Misc */
+.inline {
+	display: inline;
+}
+
+/* Always force a scrollbar in non-IE */
+html { overflow-y: scroll; }
+
+/* Bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/* Non-semantic helper classes */
+/* For image replacement */
+.ir { display:block; text-indent:-999em; overflow:hidden; background-repeat: no-repeat; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display:none; visibility:hidden; } 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden { position:absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* maxvoltar.com/archive/-webkit-font-smoothing */
+html { -webkit-font-smoothing: antialiased; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+/* Spacing */
+h1, h2, h3, h4, h5, h6 { margin-bottom: 0.7em; }
+
+p,
+dl,
+hr,
+ol,
+ul,
+pre,
+table,
+address,
+.alert,
+.pbreak {
+	margin-bottom: $pbreak;
+}
+
+.half_pbreak {
+	margin-bottom: $half_pbreak;
+}
+
+.no_pbreak, .last {
+	margin-bottom: 0;
+}

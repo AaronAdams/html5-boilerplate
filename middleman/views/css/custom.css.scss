@@ -1,0 +1,32 @@
+@import "mixins.css.scss";
+
+@import "grid.css.scss";
+
+@import "typography.css.scss";
+
+body, select, input, textarea, td { 
+	color:#444;
+	@include georgia_font_stack;
+}
+
+body { padding: 20px; }
+
+/* j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #1983c0; }
+
+a {
+	&:link {
+		color: #1983c0;
+		text-decoration: underline;
+	}
+	
+	&:visited {
+		color: #1983c0;
+		text-decoration: underline;
+	}
+	
+	&:hover {
+		color: #0069a5;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,1 @@
+Sass::Plugin.options[:full_exception] = :false

@@ -243,11 +243,15 @@ input:invalid, textarea:invalid {
    No text-shadow: twitter.com/miketaylr/status/12228805301
    Also: hot pink. */
 
-: {
-  &:-moz-selection, &:selection {
-    background: #FF5E99;
-    color: #fff;
-    text-shadow: none; } }
+::-moz-selection { 
+	background: #FF5E99; 
+	color:#fff; 
+	text-shadow: none; }
+	
+::selection { 
+	background:#FF5E99; 
+	color:#fff; 
+	text-shadow: none; }
 
 /*  j.mp/webkit-tap-highlight-color */
 
@@ -270,6 +274,8 @@ button {
 /* Primary Styles
    Author:
 */
+
+@import "custom.css.scss";
 
 /*
  * Non-semantic helper classes: please define your styles before this section.
