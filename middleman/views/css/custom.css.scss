@@ -12,8 +12,13 @@ body, select, input, textarea, td {
 body { padding: 20px; }
 
 /* j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #1983c0; }
+::-moz-selection, ::selection {
+  background: #1983c0; }
 
+a {
+	&:link {
+	-webkit-tap-highlight-color: #1983c0; } }
+	
 a {
 	&:link {
 		color: #1983c0;
@@ -26,7 +31,7 @@ a {
 	}
 	
 	&:hover {
-		color: #0069a5;
+		color: #1983c0;
 		text-decoration: none;
 	}
 }
