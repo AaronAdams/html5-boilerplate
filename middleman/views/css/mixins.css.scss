@@ -1,5 +1,6 @@
-$pbreak: 30px !default;
-$half_pbreak: 15px !default;
+$sectionbreak: 30px !default;
+$pbreak: 20px !default;
+$half_pbreak: 10px !default;
 
 @mixin odd_row {
   background: #f1f1f1;
