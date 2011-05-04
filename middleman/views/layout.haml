@@ -38,8 +38,8 @@
 	%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"}
 	:javascript
 		window.jQuery || document.write("<script src='/js/libs/jquery-1.5.2.min.js'>\x3C/script>")		/ scripts concatenated and minified via ant build script
-	%script{:src => "js/plugins.js"}
-	%script{:src => "js/script.js"}
+	%script{:src => "/js/plugins.js"}
+	%script{:src => "/js/script.js"}
 	/ end scripts
 	/[if lt IE 7 ]
 		<script src="/js/libs/dd_belatedpng.js"></script>
