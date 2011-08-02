@@ -70,14 +70,7 @@ input, select {
   vertical-align: middle; }
 
 /* END RESET CSS */
-/* fonts.css from the YUI Library: developer.yahoo.com/yui/
-   refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
-
-  there are three custom edits:
-   * remove arial, helvetica from explicit font stack
-   * we normalize monospace styles ourselves
-   * table font-size is reset in the HTML5 reset above so there is no need to repeat
-*/
+/* font normalization inspired by  from the YUI Library's fonts.css: developer.yahoo.com/yui/ */
 body {
   font: 13px/1.231 sans-serif;
   *font-size: small; }
@@ -101,8 +94,7 @@ body, select, input, textarea {
   /* set your base font here, to apply evenly */
   /* font-family: Georgia, serif;  */ }
 
-/* headers (h1,h2,etc) have no default font-size or margin,
-   you'll want to define those yourself. */
+/* headers (h1,h2,etc) have no default font-size or margin. define those yourself. */
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold; }
 
@@ -145,7 +137,7 @@ strong, th {
 td {
   vertical-align: top; }
 
-/* set sub, sup without affecting line-height: gist.github.com/413930*/
+/* set sub, sup without affecting line-height: gist.github.com/413930 */
 sub {
   font-size: 75%;
   line-height: 0;
@@ -720,17 +712,14 @@ a:hover {
  */
 @media all and (orientation:portrait) {
   /* style adjustments for portrait mode goes here */ }
-
 @media all and (orientation:landscape) {
   /* style adjustments for landscape mode goes here */ }
-
 /* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
    consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
 @media screen and (max-device-width: 480px) {
   /* uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
      j.mp/textsizeadjust
   html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */ }
-
 /*
  * print styles
  * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/
