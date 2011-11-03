@@ -1,0 +1,84 @@
+@import "mixins.css.scss";
+
+@import "reset.css.scss";
+
+@import "grid.css.scss";
+
+@import "typography.css.scss";
+
+body, select, input, textarea, td { 
+	color:#444;
+	@include georgia_font_stack;
+}
+
+body { padding: 20px; }
+
+/* j.mp/webkit-tap-highlight-color */
+::-moz-selection, ::selection {
+  background: #1983c0; }
+
+a {
+	&:link {
+	-webkit-tap-highlight-color: #1983c0; } }
+	
+a {
+	&:link {
+		color: #1983c0;
+		text-decoration: underline;
+	}
+	
+	&:visited {
+		color: #1983c0;
+		text-decoration: underline;
+	}
+	
+	&:hover {
+		color: #1983c0;
+		text-decoration: none;
+	}
+}
+
+/* Buttons */
+a.button,
+button {
+	background: url(/images/site/blue_button_150px.png) no-repeat;
+	width: 150px;
+	height: 37px;
+	color: #fff;
+	font-weight: normal;
+	@include georgia_font_stack;
+	font-size: 16px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #234966;
+	cursor: pointer;
+}
+
+a.button {
+	display: block;
+	line-height: 37px;
+	
+	&:link {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	&:visited {
+		color: #fff;
+		text-decoration: none; 
+	}
+	
+	&:hover {
+		color: #fff;
+		text-decoration: underline;
+	}
+}	
+
+button {
+	border: none;
+	display: inline;
+	
+	&:hover {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
